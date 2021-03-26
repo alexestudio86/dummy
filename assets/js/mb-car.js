@@ -99,7 +99,7 @@ formSecondaryAllTexts.push(document.querySelector('form#formSecondary label[for=
         }else{
           window.location.href = '/#menu';
         }
-      },1000);
+      },100000);
     }
 
     let deleteItem = (e) => {
