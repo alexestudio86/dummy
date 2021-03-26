@@ -19,12 +19,12 @@
           listElementDown = document.createElement('div');
           listElementDown.classList.add('w3-row');
             priceElement = document.createElement('span')
-            priceElement.classList.add('w3-col', 's5', 'w3-text-red');
+            priceElement.classList.add('w3-col', 's5', 'w3-text-blue');
             priceElement.textContent = '$ ' + c.total + ' mxn';
             deleteElement = document.createElement('div');
             deleteElement.classList.add('w3-rest', 'w3-right-align');
               deleteIcon = document.createElement('i');
-              deleteIcon.classList.add('fas', 'fa-trash-alt', 'w3-button', 'w3-border', 'w3-border-red', 'w3-small', 'bold');
+              deleteIcon.classList.add('fas', 'fa-trash-alt', 'w3-button', 'w3-red','w3-border', 'w3-small');
               deleteIcon.setAttribute('ident', index);
               deleteIcon.addEventListener('click', deleteItem);
         ulAside.appendChild(listElement);
