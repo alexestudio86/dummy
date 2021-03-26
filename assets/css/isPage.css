@@ -1,0 +1,26 @@
+      /* CHANGE ORDER */
+
+      .d-flex {
+        display:-ms-flexbox!important;display:flex!important;
+      }
+      .flex-column {
+        -ms-flex-direction:column!important;flex-direction:column!important;
+      }
+      .order-1 {
+        -ms-flex-order:1;order:1;
+      }
+      .order-2 {
+        -ms-flex-order:2;order:2;
+      }
+      .order-3 {
+        -ms-flex-order:3;order:3;
+      }
+      .order-4 {
+        -ms-flex-order:4;order:4;
+      }
+      .order-5 {
+        -ms-flex-order:5;order:5;
+      }
+      .order-6 {
+        -ms-flex-order:6;order:6;
+      }
