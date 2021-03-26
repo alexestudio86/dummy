@@ -13,25 +13,24 @@
       for (let [index, c] of car.entries()){
         listElement = document.createElement('li');
         listElement.classList.add('w3-justify', 'w3-white', 'w3-border');
-          listElementUp = document.createElement('div');
-            elementDescription = document.createElement('span');
-            elementDescription.classList.add('w3-large');
-            elementDescription.textContent = c.cantidad + ' x ' + '$' + c.subtotal + ' - ' + c.titulo + ' | $' + c.total;
+          listElementUp = document.createElement('p');
+          listElementUp.classList.add('w3-large');
+          listElementUp.textContent = c.cantidad + ' x ' + '$' + c.subtotal + ' - ' + c.titulo;
           listElementDown = document.createElement('div');
-          listElementDown.classList.add('w3-right-align');
+          listElementDown.classList.add('w3-row');
+            priceElement = document.createElement('span')
+            priceElement.classList.add('w3-col', 's5', 'w3-text-gray');
+            priceElement.textContent = '$ ' + c.total + ' mxn';
             deleteElement = document.createElement('a');
-            deleteElement.classList.add('w3-button', 'w3-border', 'w3-border-red', 'w3-small', 'bold');
+            deleteElement.classList.add('w3-rest', 'w3-button', 'w3-border', 'w3-border-red', 'w3-small', 'bold');
             deleteElement.innerHTML = 'Eliminar';
             deleteElement.setAttribute('ident', index);
-            deleteElement.setAttribute('deleteThis', 'true');
-            deleteElement.setAttribute('data-price', c.cantidad);
-            deleteElement.setAttribute('data-title', c.titulo);
             deleteElement.addEventListener('click', deleteItem);
 
         ulAside.appendChild(listElement);
           listElement.appendChild(listElementUp);
-            listElementUp.appendChild(elementDescription);
           listElement.appendChild(listElementDown);
+            listElementDown.appendChild(priceElement);
             listElementDown.appendChild(deleteElement);
 
         // Total de artículos
