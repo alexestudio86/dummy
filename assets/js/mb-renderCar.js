@@ -1,44 +1,44 @@
-    // RENDERIZAR CARRITO
-    function renderCar () {
+    // RENDER CAR
+    let renderCar = () => {
       ulAside = document.querySelector('aside ul');
       ulAside.innerHTML = '';
       totalCarrito = document.querySelector('#opencart span');
       totalAside = document.querySelector('#totalAside');
       articulos = 0;
       dinero = 0;
-      totalArticle = document.querySelectorAll('div[val]');
-      for (let tArticle of totalArticle){
-        tArticle.innerHTML = '0';
+      totalArticles = document.querySelectorAll('div[val]');
+      for (let totalArticle of totalArticles){
+        totalArticle.innerHTML = '0';
       }
-      for (let c of car){
+      for (let [index, c] of car.entries()){
         listElement = document.createElement('li');
-        listElement.classList.add('w3-right-align', 'w3-border', 'w3-white', 'w3-row');
-          listElementLeft = document.createElement('div');
-          listElementLeft.classList.add('w3-col', 's10');
+        listElement.classList.add('w3-justify', 'w3-white', 'w3-border');
+          listElementUp = document.createElement('div');
             elementDescription = document.createElement('span');
-            elementDescription.textContent = c.cantidad + ' x ' + '$' + c.precio + ' - ' + c.titulo + ' | $' + c.subtotal;
-          listElementRight = document.createElement('div');
-          listElementRight.classList.add('w3-rest')
+            elementDescription.classList.add('w3-large');
+            elementDescription.textContent = c.cantidad + ' x ' + '$' + c.subtotal + ' - ' + c.titulo + ' | $' + c.total;
+          listElementDown = document.createElement('div');
+          listElementDown.classList.add('w3-right-align');
             deleteElement = document.createElement('a');
-            deleteElement.classList.add('w3-button', 'w3-red', 'w3-small', 'bold');
-            deleteElement.innerHTML = '&times;';
-            deleteElement.setAttribute('ident', c.identificador);
+            deleteElement.classList.add('w3-button', 'w3-border', 'w3-border-red', 'w3-small', 'bold');
+            deleteElement.innerHTML = 'Eliminar';
+            deleteElement.setAttribute('ident', index);
             deleteElement.setAttribute('deleteThis', 'true');
             deleteElement.setAttribute('data-price', c.cantidad);
             deleteElement.setAttribute('data-title', c.titulo);
-            deleteElement.addEventListener('click', carCounter);
+            deleteElement.addEventListener('click', deleteItem);
 
         ulAside.appendChild(listElement);
-          listElement.appendChild(listElementLeft);
-            listElementLeft.appendChild(elementDescription);
-          listElement.appendChild(listElementRight);
-            listElementRight.appendChild(deleteElement);
+          listElement.appendChild(listElementUp);
+            listElementUp.appendChild(elementDescription);
+          listElement.appendChild(listElementDown);
+            listElementDown.appendChild(deleteElement);
 
         // Total de artículos
         articulos += c.cantidad;
 
         // Total dinero
-        dinero += c.subtotal;
+        dinero += c.total;
 
         actualizarCampo = document.querySelector('div[val="'+c.identificador+'"]');
         if(actualizarCampo){
@@ -62,4 +62,6 @@
       }else{
         totalCarrito.classList.remove('w3-text-red');
       }
+      const carString = JSON.stringify(car);
+      localStorage.setItem('car', carString);
     };
