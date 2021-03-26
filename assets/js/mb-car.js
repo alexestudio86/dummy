@@ -24,7 +24,7 @@ formSecondaryAllTexts.push(document.querySelector('form#formSecondary label[for=
         }
       }
       // Titles
-      totalTitles=[formCero.textContent, formPrimary.value, ...formSecondaryAllTexts];
+      totalTitles=[formCero.textContent, formPrimaryTitle, ...formSecondaryAllTexts];
       title = totalTitles.join(', ');
       // Cantidad
       quantity = 0;
@@ -99,7 +99,7 @@ formSecondaryAllTexts.push(document.querySelector('form#formSecondary label[for=
         }else{
           window.location.href = '/#menu';
         }
-      },100000);
+      },1000);
     }
 
     let deleteItem = (e) => {
