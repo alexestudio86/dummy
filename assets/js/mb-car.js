@@ -109,5 +109,7 @@ formSecondaryAllTexts.push(document.querySelector('form#formSecondary label[for=
 
     // Add Events to start
     carButton = document.querySelector('#carButton');
-    carButton.addEventListener('click', carCounter);
-    carButton.addEventListener('click', disableButton);
+    if(carButton){
+      carButton.addEventListener('click', carCounter);
+      carButton.addEventListener('click', disableButton);
+    }
