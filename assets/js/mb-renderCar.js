@@ -21,17 +21,18 @@
             priceElement = document.createElement('span')
             priceElement.classList.add('w3-col', 's5', 'w3-text-gray');
             priceElement.textContent = '$ ' + c.total + ' mxn';
-            deleteElement = document.createElement('a');
-            deleteElement.classList.add('w3-rest', 'w3-button', 'w3-border', 'w3-border-red', 'w3-small', 'bold');
-            deleteElement.innerHTML = 'Eliminar';
-            deleteElement.setAttribute('ident', index);
-            deleteElement.addEventListener('click', deleteItem);
-
+            deleteElement = document.createElement('div');
+            deleteElement.classList.add('w3-rest', 'w3-right-align');
+              deleteIcon = document.createElement(i);
+              deleteIcon.classList.add('fas', 'fa-trash-alt', 'w3-button', 'w3-border', 'w3-border-red', 'w3-small', 'bold');
+              deleteIcon.setAttribute('ident', index);
+              deleteIcon.addEventListener('click', deleteItem);
         ulAside.appendChild(listElement);
           listElement.appendChild(listElementUp);
           listElement.appendChild(listElementDown);
             listElementDown.appendChild(priceElement);
             listElementDown.appendChild(deleteElement);
+              deleteElement.appendChild(deleteIcon);
 
         // Total de artículos
         articulos += c.cantidad;
