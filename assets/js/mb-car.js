@@ -5,10 +5,10 @@
       // Nombre
       formCero = document.querySelector('#formCero');
       // Modelo
-      formPrimaryTitle = '';
+      formPrimaryTitle = [];
       formPrimary = document.querySelector('form#formPrimary input:checked');
       if(formPrimary){
-        formPrimaryTitle = formPrimary.value;
+        formPrimaryTitle.push(formPrimary.value);
       }
       // Variación
       formSecondaryTitle = '';
@@ -24,7 +24,7 @@ formSecondaryAllTexts.push(document.querySelector('form#formSecondary label[for=
         }
       }
       // Titles
-      totalTitles=[formCero.textContent, formPrimaryTitle, ...formSecondaryAllTexts];
+      totalTitles=[formCero.textContent, ...formPrimaryTitle, ...formSecondaryAllTexts];
       title = totalTitles.join(', ');
       // Cantidad
       quantity = 0;
